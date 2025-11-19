@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strudel Snippet Library Demo</title>
+    <style>
+        body {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 20px;
+            height: calc(100vh - 40px);
+        }
+        
+        .sidebar {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .main {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .search-container {
+            margin-bottom: 15px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-family: inherit;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
+        .stats {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        
+        .strudel-snippet-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu-item {
+            margin: 2px 0;
+        }
+        
+        .menu-item.folder > .folder-label {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #333;
+            margin-bottom: 2px;
+        }
+        
+        .menu-item.folder > .folder-label:hover {
+            background: #444;
+        }
+        
+        .menu-item.snippet > .snippet-label {
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1a1a1a;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .menu-item.snippet > .snippet-label:hover {
+            background: #333;
+        }
+        
+        .category-badge {
+            font-size: 10px;
+            background: #0066cc;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .submenu-container {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        
+        .folder-icon, .snippet-icon {
+            margin-right: 8px;
+        }
+        
+        .arrow {
+            transition: transform 0.2s;
+        }
+        
+        .code-editor {
+            flex: 1;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: inherit;
+            color: #e0e0e0;
+            resize: none;
+            outline: none;
+        }
+        
+        .code-editor:focus {
+            border-color: #0066cc;
+        }
+        
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            background: #0052a3;
+        }
+        
+        .btn.secondary {
+            background: #444;
+        }
+        
+        .btn.secondary:hover {
+            background: #555;
+        }
+        
+        .search-results {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #1a1a1a;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .search-result {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+        }
+        
+        .search-result:hover {
+            background: #333;
+        }
+        
+        .search-result:last-child {
+            border-bottom: none;
+        }
+        
+        .result-name {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .result-path {
+            font-size: 11px;
+            color: #888;
+        }
+        
+        h1 {
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Strudel Snippet Library Demo</h1>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search snippets...">
+            </div>
+            
+            <div class="stats" id="stats">
+                Loading...
+            </div>
+            
+            <div id="searchResults" class="search-results" style="display: none;"></div>
+            
+            <h2>Browse Categories</h2>
+            <div id="snippetMenu">
+                Loading snippet library...
+            </div>
+        </div>
+        
+        <div class="main">
+            <div class="toolbar">
+                <button class="btn" id="playBtn">▶ Play</button>
+                <button class="btn secondary" id="stopBtn">⏹ Stop</button>
+                <button class="btn secondary" id="clearBtn">Clear</button>
+                <button class="btn secondary" id="randomBtn">🎲 Random</button>
+            </div>
+            
+            <textarea 
+                class="code-editor" 
+                id="codeEditor" 
+                placeholder="Select a snippet from the sidebar to insert code here, or type your own Strudel patterns...
+
+Examples:
+- s(&quot;bd sd cp hh&quot;) // Basic drum pattern
+- note(&quot;c d e f&quot;) // Simple melody
+- Use Ctrl+Enter to play (if connected to Strudel REPL)"
+            ></textarea>
+        </div>
+    </div>
+
+    <script src="strudel-snippet-library.js"></script>
+    <script>
+        let library = null;
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const snippetMenu = document.getElementById('snippetMenu');
+        const codeEditor = document.getElementById('codeEditor');
+        const statsDiv = document.getElementById('stats');
+        const randomBtn = document.getElementById('randomBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        
+        // Load the snippet library
+        async function initializeLibrary() {
+            try {
+                library = await loadStrudelSnippetLibrary('./strudel-snippets.json');
+                
+                // Display stats
+                const stats = library.getStats();
+                statsDiv.innerHTML = `
+                    📊 <strong>${stats.totalSnippets}</strong> snippets<br>
+                    📁 <strong>${stats.categories}</strong> categories
+                `;
+                
+                // Generate and render menu
+                const menuStructure = library.generateMenuStructure();
+                snippetMenu.innerHTML = '';
+                renderStrudelSnippetMenu(menuStructure, snippetMenu, onSnippetSelect);
+                
+            } catch (error) {
+                console.error('Failed to load snippet library:', error);
+                snippetMenu.innerHTML = '<p style="color: #ff6b6b;">❌ Failed to load snippet library. Make sure strudel-snippets.json is in the same directory.</p>';
+                statsDiv.innerHTML = '❌ Load failed';
+            }
+        }
+        
+        // Handle snippet selection
+        function onSnippetSelect(snippet) {
+            insertStrudelSnippet(snippet, codeEditor, {
+                replaceSelection: false,
+                addNewLine: true,
+                focus: true
+            });
+            
+            // Hide search results
+            searchResults.style.display = 'none';
+        }
+        
+        // Search functionality
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const query = e.target.value.trim();
+            
+            if (query.length === 0) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            searchTimeout = setTimeout(() => {
+                if (!library) return;
+                
+                const results = library.searchSnippets(query, { 
+                    searchInText: true,
+                    maxResults: 10 
+                });
+                
+                displaySearchResults(results);
+            }, 300);
+        });
+        
+        // Display search results
+        function displaySearchResults(results) {
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="search-result">No results found</div>';
+            } else {
+                searchResults.innerHTML = results.map(result => `
+                    <div class="search-result" onclick="selectSearchResult('${result.fullPath}')">
+                        <div class="result-name">${result.name}</div>
+                        <div class="result-path">${result.fullPath}</div>
+                    </div>
+                `).join('');
+            }
+            searchResults.style.display = 'block';
+        }
+        
+        // Handle search result selection
+        window.selectSearchResult = function(path) {
+            const snippet = library.getSnippet(path);
+            if (snippet) {
+                onSnippetSelect({
+                    ...snippet,
+                    text: snippet.text
+                });
+            }
+        };
+        
+        // Random snippet button
+        randomBtn.addEventListener('click', () => {
+            if (!library) return;
+            
+            const randomSnippet = library.getRandomSnippet();
+            if (randomSnippet) {
+                onSnippetSelect(randomSnippet);
+            }
+        });
+        
+        // Clear button
+        clearBtn.addEventListener('click', () => {
+            codeEditor.value = '';
+            codeEditor.focus();
+        });
+        
+        // Keyboard shortcuts
+        codeEditor.addEventListener('keydown', (e) => {
+            // Ctrl+Enter could trigger play in real Strudel integration
+            if (e.ctrlKey && e.key === 'Enter') {
+                e.preventDefault();
+                console.log('Play triggered:', codeEditor.value);
+                alert('In a real Strudel integration, this would play the pattern!');
+            }
+            
+            // Tab for indentation
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = codeEditor.selectionStart;
+                const end = codeEditor.selectionEnd;
+                codeEditor.value = codeEditor.value.substring(0, start) + '  ' + codeEditor.value.substring(end);
+                codeEditor.selectionStart = codeEditor.selectionEnd = start + 2;
+            }
+        });
+        
+        // Initialize the library when page loads
+        document.addEventListener('DOMContentLoaded', initializeLibrary);
+        
+        // Hide search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

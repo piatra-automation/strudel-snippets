@@ -1,0 +1,774 @@
+{
+  "snippets": {
+    "Beginner": {
+      "type": "folder",
+      "children": {
+        "First Patterns": {
+          "type": "folder",
+          "children": {
+            "Hello Drums": {
+              "type": "snippet",
+              "name": "Hello Drums",
+              "text": "s(\"bd sd cp hh\")"
+            },
+            "Basic Kick": {
+              "type": "snippet", 
+              "name": "Basic Kick",
+              "text": "s(\"bd*4\")"
+            },
+            "Simple Beat": {
+              "type": "snippet",
+              "name": "Simple Beat", 
+              "text": "s(\"bd hh bd hh\")"
+            },
+            "Drum Variations": {
+              "type": "snippet",
+              "name": "Drum Variations",
+              "text": "s(\"<bd sd> hh <hh hh*2>\")"
+            }
+          }
+        },
+        "Simple Notes": {
+          "type": "folder",
+          "children": {
+            "First Notes": {
+              "type": "snippet",
+              "name": "First Notes",
+              "text": "note(\"c d e f\")"
+            },
+            "Note Numbers": {
+              "type": "snippet",
+              "name": "Note Numbers", 
+              "text": "note(\"60 62 64 65\")"
+            },
+            "Basic Melody": {
+              "type": "snippet",
+              "name": "Basic Melody",
+              "text": "note(\"c3 e3 g3 c4\")"
+            },
+            "Triangle Wave": {
+              "type": "snippet",
+              "name": "Triangle Wave",
+              "text": "note(\"c d e f\").s(\"triangle\")"
+            }
+          }
+        },
+        "Basic Chaining": {
+          "type": "folder", 
+          "children": {
+            "Volume Control": {
+              "type": "snippet",
+              "name": "Volume Control",
+              "text": "s(\"bd*2 hh*2\").gain(0.8)"
+            },
+            "Simple Chain": {
+              "type": "snippet",
+              "name": "Simple Chain",
+              "text": "note(\"c e g\").s(\"sawtooth\").gain(0.7)"
+            },
+            "Octave Jump": {
+              "type": "snippet",
+              "name": "Octave Jump",
+              "text": "note(\"c3 c4 c3 c4\").s(\"sine\")"
+            }
+          }
+        }
+      }
+    },
+    "Rhythm & Drums": {
+      "type": "folder",
+      "children": {
+        "Drum Patterns": {
+          "type": "folder",
+          "children": {
+            "House Kick": {
+              "type": "snippet", 
+              "name": "House Kick",
+              "text": "s(\"bd*4\")"
+            },
+            "Basic House": {
+              "type": "snippet",
+              "name": "Basic House",
+              "text": "stack(\n  s(\"bd*4\"),\n  s(\"hh*8\").gain(0.7),\n  s(\"~ sd\")\n)"
+            },
+            "Techno Beat": {
+              "type": "snippet",
+              "name": "Techno Beat", 
+              "text": "stack(\n  s(\"bd*4\"),\n  s(\"hh*8\").gain(0.7),\n  s(\"~ sd\").nudge(0.05)\n).cpm(130)"
+            },
+            "TR-909 Style": {
+              "type": "snippet",
+              "name": "TR-909 Style",
+              "text": "s(\"bd sd [~ bd] sd, hh*6\")\n.bank(\"RolandTR909\")\n.n(\"<0 1>\")\n.gain(0.7)"
+            }
+          }
+        },
+        "Polyrhythms": {
+          "type": "folder",
+          "children": {
+            "Three Over Four": {
+              "type": "snippet",
+              "name": "Three Over Four",
+              "text": "stack(\n  n(\"10 11 14 17\").sound(\"per\"),\n  n(\"12 18 22\").sound(\"tone\")\n)"
+            },
+            "Polyrhythmic Kick": {
+              "type": "snippet", 
+              "name": "Polyrhythmic Kick",
+              "text": "s(\"bd(3,8)\")"
+            },
+            "Complex Polyrhythm": {
+              "type": "snippet",
+              "name": "Complex Polyrhythm",
+              "text": "stack(\n  s(\"bd(3,8)\"),\n  s(\"[~ hh*2]!4\"),\n  s(\"~ sd\").crush(4).room(0.5)\n)"
+            }
+          }
+        },
+        "Euclidean Rhythms": {
+          "type": "folder",
+          "children": {
+            "Basic Euclidean": {
+              "type": "snippet",
+              "name": "Basic Euclidean", 
+              "text": "s(\"bd(3,8)\")"
+            },
+            "Euclidean with Offset": {
+              "type": "snippet",
+              "name": "Euclidean with Offset",
+              "text": "s(\"bd(5,8,2)\")"
+            },
+            "Multi Euclidean": {
+              "type": "snippet",
+              "name": "Multi Euclidean",
+              "text": "stack(\n  s(\"bd(3,8)\"),\n  s(\"hh(5,8,1)\"),\n  s(\"sd(1,4,2)\")\n)"
+            }
+          }
+        },
+        "Polymeter": {
+          "type": "folder",
+          "children": {
+            "Polymetric Structure": {
+              "type": "snippet",
+              "name": "Polymetric Structure",
+              "text": "sound(\"{per per:6 [~ per:14] per:27, text:17 ~ ~ ~ tone:29}\")"
+            },
+            "Rotating Pattern": {
+              "type": "snippet",
+              "name": "Rotating Pattern", 
+              "text": "sound(\"{bd sd cp, hh*3}\")"
+            }
+          }
+        }
+      }
+    },
+    "Synthesis": {
+      "type": "folder",
+      "children": {
+        "Oscillators": {
+          "type": "folder",
+          "children": {
+            "Basic Waveforms": {
+              "type": "snippet",
+              "name": "Basic Waveforms",
+              "text": "note(\"c2 <eb2 <g2 g1>>\".fast(2))\n.sound(\"<sawtooth square triangle sine>\")"
+            },
+            "Sawtooth Bass": {
+              "type": "snippet",
+              "name": "Sawtooth Bass",
+              "text": "note(\"c1 c2 bb0 f1\").s(\"sawtooth\")"
+            },
+            "Square Lead": {
+              "type": "snippet",
+              "name": "Square Lead",
+              "text": "note(\"c4 e4 g4 b4\").s(\"square\").gain(0.6)"
+            },
+            "Sine Pad": {
+              "type": "snippet",
+              "name": "Sine Pad",
+              "text": "note(\"<c3e3g3 a2c3e3 f2a2c3 g2b2d3>\").s(\"sine\")\n.slow(2).gain(0.5)"
+            },
+            "Harmonic Limiter": {
+              "type": "snippet",
+              "name": "Harmonic Limiter",
+              "text": "note(\"c2 <eb2 <g2 g1>>\".fast(2))\n.sound(\"sawtooth\")\n.n(\"<32 16 8 4>\")"
+            }
+          }
+        },
+        "Noise Sources": {
+          "type": "folder",
+          "children": {
+            "White Noise": {
+              "type": "snippet",
+              "name": "White Noise",
+              "text": "s(\"white*16\").gain(0.3)"
+            },
+            "Pink Noise": {
+              "type": "snippet", 
+              "name": "Pink Noise",
+              "text": "s(\"pink*8\").gain(0.4)"
+            },
+            "Brown Noise": {
+              "type": "snippet",
+              "name": "Brown Noise", 
+              "text": "s(\"brown*4\").gain(0.5)"
+            },
+            "Crackle": {
+              "type": "snippet",
+              "name": "Crackle",
+              "text": "s(\"crackle*4\").density(\"<0.01 0.04 0.2 0.5>\".slow(2))"
+            }
+          }
+        },
+        "FM Synthesis": {
+          "type": "folder",
+          "children": {
+            "Basic FM": {
+              "type": "snippet",
+              "name": "Basic FM",
+              "text": "note(\"c e g b\").s(\"sine\")\n.fm(\"<0 1 2 8 16>\")\n.fmh(\"<1 2 1.5 1.61>\")"
+            },
+            "FM Bass": {
+              "type": "snippet",
+              "name": "FM Bass", 
+              "text": "note(\"c2*8\").s(\"sine\")\n.fm(2).fmh(1.5).gain(0.8)"
+            },
+            "Metallic FM": {
+              "type": "snippet",
+              "name": "Metallic FM",
+              "text": "note(\"d1!8\").s(\"sine\")\n.penv(36).pdecay(.12).decay(.23)\n.fm(8).fmh(1.61)"
+            },
+            "FM Envelope": {
+              "type": "snippet",
+              "name": "FM Envelope",
+              "text": "note(\"c e g b g e\").s(\"sine\")\n.fm(4)\n.fmattack(\"<0 .05 .1 .2>\")\n.fmdecay(\"<.01 .05 .1 .2>\")\n.fmsustain(\"<1 .75 .5 0>\")\n.fmenv(\"<exp lin>\")"
+            }
+          }
+        },
+        "Wavetables": {
+          "type": "folder",
+          "children": {
+            "Basic Wavetable": {
+              "type": "snippet",
+              "name": "Basic Wavetable",
+              "text": "samples('bubo:waveforms')\nnote(\"c2*8\").s(\"wt_dbass\").n(run(8)).fast(2)"
+            },
+            "Evolving Wavetable": {
+              "type": "snippet",
+              "name": "Evolving Wavetable", 
+              "text": "note(\"<[g3,b3,e4]!2 [a3,c3,e4] [b3,d3,f#4]>\")\n.n(\"<1 2 3 4 5 6 7 8 9 10>/2\").room(0.5).size(0.9)\n.s('wt_flute').velocity(0.25).often(n => n.ply(2))\n.release(0.125).decay(\"<0.1 0.25 0.3 0.4>\").sustain(0)\n.cutoff(2000).cutoff(\"<1000 2000 4000>\").fast(4)"
+            },
+            "Wavetable Scan": {
+              "type": "snippet",
+              "name": "Wavetable Scan",
+              "text": "s(\"basique\").bank(\"wt_digital\")\n.note(\"F1\")\n.wt(\"0 0.25 0.5 0.75 1\")\n.warp(\"<0 .25 .5 .75 1>\")\n.warpmode(\"<asym bendp spin logistic sync wormhole>*2\")"
+            }
+          }
+        }
+      }
+    },
+    "Scales & Harmony": {
+      "type": "folder",
+      "children": {
+        "Basic Scales": {
+          "type": "folder",
+          "children": {
+            "C Major Scale": {
+              "type": "snippet",
+              "name": "C Major Scale",
+              "text": "n(\"0 1 2 3 4 5 6 7\").scale(\"C:major\")"
+            },
+            "Minor Pentatonic": {
+              "type": "snippet",
+              "name": "Minor Pentatonic",
+              "text": "n(\"0 2 3 5 6\").scale(\"C:minor\")\n.s(\"piano\").slow(2)"
+            },
+            "Dorian Mode": {
+              "type": "snippet",
+              "name": "Dorian Mode",
+              "text": "n(\"0 2 4 6\").scale(\"D:dorian\")\n.s(\"sine\").gain(0.7)"
+            },
+            "Random Scale": {
+              "type": "snippet",
+              "name": "Random Scale", 
+              "text": "n(irand(8)).scale(\"C:minor\")\n.s(\"triangle\").slow(4)"
+            }
+          }
+        },
+        "Chord Progressions": {
+          "type": "folder",
+          "children": {
+            "Jazz ii-V-I": {
+              "type": "snippet",
+              "name": "Jazz ii-V-I",
+              "text": "chord(\"<Dm7 G7 Cmaj7>\").slow(3)\n.s(\"piano\").gain(0.8)"
+            },
+            "Pop Progression": {
+              "type": "snippet",
+              "name": "Pop Progression",
+              "text": "chord(\"<C Am F G>\")\n.s(\"sawtooth\").cutoff(800)"
+            },
+            "Minor Progression": {
+              "type": "snippet", 
+              "name": "Minor Progression",
+              "text": "note(\"<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>\")\n.sound(\"gm_synth_bass_1\")\n.lpf(800)"
+            },
+            "Voiced Chords": {
+              "type": "snippet",
+              "name": "Voiced Chords",
+              "text": "chord(\"<C^7 A7b13 Dm7 G7>*2\")\n.dict('ireal').voicing()\n.s('sawtooth').cutoff(\"800:4:2\")"
+            }
+          }
+        },
+        "Arpeggios": {
+          "type": "folder",
+          "children": {
+            "Basic Arpeggio": {
+              "type": "snippet",
+              "name": "Basic Arpeggio",
+              "text": "note(\"c eb g c4\")\n.clip(2).s(\"gm_electric_guitar_clean\")"
+            },
+            "Broken Chord": {
+              "type": "snippet",
+              "name": "Broken Chord",
+              "text": "note(\"c3 e3 g3 e3\")\n.s(\"piano\").fast(2)"
+            },
+            "Ascending Arp": {
+              "type": "snippet",
+              "name": "Ascending Arp", 
+              "text": "n(\"[0,2,4] [1,3,5] [2,4,6] [3,5,7]\")\n.scale(\"C4:major\").s(\"sine\").gain(0.6)"
+            }
+          }
+        }
+      }
+    },
+    "Effects & Processing": {
+      "type": "folder",
+      "children": {
+        "Filters": {
+          "type": "folder",
+          "children": {
+            "Lowpass Filter": {
+              "type": "snippet",
+              "name": "Lowpass Filter",
+              "text": "s(\"bd sd,hh*3\").cutoff(\"<4000 2000 1000 500 200 100>\")"
+            },
+            "Highpass Filter": {
+              "type": "snippet",
+              "name": "Highpass Filter", 
+              "text": "s(\"bd sd,hh*4\").hcutoff(\"<4000 2000 1000 500 200 100>\")"
+            },
+            "Resonant Filter": {
+              "type": "snippet",
+              "name": "Resonant Filter",
+              "text": "note(\"c e g b\").s(\"sine\")\n.bpf(\"<500 1000 2000 4000>\")\n.bpq(\"<0 .5 1 2>\")"
+            },
+            "Filter Sweep": {
+              "type": "snippet",
+              "name": "Filter Sweep",
+              "text": "note(\"c2 <eb2 <g2 g1>>\".fast(2))\n.s(\"sawtooth\").lpq(8)\n.lpf(400).lpa(.2).lpenv(4)"
+            }
+          }
+        },
+        "Reverb & Delay": {
+          "type": "folder", 
+          "children": {
+            "Basic Reverb": {
+              "type": "snippet",
+              "name": "Basic Reverb",
+              "text": "s(\"bd sd [~ bd] sd\").room(.8)"
+            },
+            "Room Size": {
+              "type": "snippet",
+              "name": "Room Size",
+              "text": "s(\"bd sd [~ bd] sd\").room(\".8:4\")"
+            },
+            "Delay Effect": {
+              "type": "snippet",
+              "name": "Delay Effect",
+              "text": "note(\"c a f e\").delay(0.65).delaytime(0.27).delayfeedback(0.8)"
+            },
+            "Short Delay": {
+              "type": "snippet", 
+              "name": "Short Delay",
+              "text": "note(\"c a f e\").delay(\"0.65:0.27:0.8\")"
+            }
+          }
+        },
+        "Distortion": {
+          "type": "folder",
+          "children": {
+            "Bit Crusher": {
+              "type": "snippet",
+              "name": "Bit Crusher",
+              "text": "s(\"<bd sd>,hh*3\").fast(2).crush(\"<16 8 7 6 5 4 3 2>\")"
+            },
+            "Wave Distortion": {
+              "type": "snippet",
+              "name": "Wave Distortion",
+              "text": "s(\"bd sd [~ bd] sd,hh*8\").distort(\"<0 2 3 10:.5>\")"
+            },
+            "Crushed Snare": {
+              "type": "snippet",
+              "name": "Crushed Snare", 
+              "text": "s(\"~ sd\").crush(4).room(0.5)"
+            }
+          }
+        },
+        "Dynamics & Pan": {
+          "type": "folder",
+          "children": {
+            "Stereo Pan": {
+              "type": "snippet",
+              "name": "Stereo Pan",
+              "text": "s(\"hh\").gain(\"0.4|0.5|0.6\").pan(\"0|.5|1\").fast(16)"
+            },
+            "Auto Pan": {
+              "type": "snippet",
+              "name": "Auto Pan", 
+              "text": "note(\"c e g b\").s(\"sine\").pan(sine.slow(4))"
+            },
+            "Gain Control": {
+              "type": "snippet",
+              "name": "Gain Control",
+              "text": "s(\"bd*4\").gain(\"<0.8 0.9 1.0 0.7>\")"
+            }
+          }
+        }
+      }
+    },
+    "Pattern Transformations": {
+      "type": "folder",
+      "children": {
+        "Speed Changes": {
+          "type": "folder",
+          "children": {
+            "Fast Pattern": {
+              "type": "snippet",
+              "name": "Fast Pattern", 
+              "text": "s(\"bd hh\").fast(2)"
+            },
+            "Slow Pattern": {
+              "type": "snippet",
+              "name": "Slow Pattern",
+              "text": "s(\"bd sd hh cp\").slow(2)"
+            },
+            "Variable Speed": {
+              "type": "snippet",
+              "name": "Variable Speed",
+              "text": "s(\"bd hh\").fast(\"<1 2 4 1>\")"
+            },
+            "Tempo Modulation": {
+              "type": "snippet",
+              "name": "Tempo Modulation", 
+              "text": "s(\"bd sd hh\").fast(sine.range(1,4).slow(8))"
+            }
+          }
+        },
+        "Reversing & Chopping": {
+          "type": "folder",
+          "children": {
+            "Reverse Pattern": {
+              "type": "snippet",
+              "name": "Reverse Pattern",
+              "text": "s(\"bd sd hh hh\").rev()"
+            },
+            "Every N Cycles": {
+              "type": "snippet",
+              "name": "Every N Cycles",
+              "text": "s(\"bd sd hh hh\").every(3, p => p.rev())"
+            },
+            "Chop Sample": {
+              "type": "snippet",
+              "name": "Chop Sample", 
+              "text": "samples('github:yaxu/clean-breaks')\ns(\"amen/4\").fit().chop(16).cut(1)"
+            },
+            "Slice Pattern": {
+              "type": "snippet",
+              "name": "Slice Pattern",
+              "text": "samples('github:yaxu/clean-breaks')\ns(\"amen/4\").fit()\n.slice(8, \"<0 1 2 3 4*2 5 6 [6 7]>*2\")\n.cut(1).rarely(ply(\"2\"))"
+            }
+          }
+        },
+        "Randomization": {
+          "type": "folder",
+          "children": {
+            "Sometimes": {
+              "type": "snippet",
+              "name": "Sometimes",
+              "text": "s(\"bd sd hh\").sometimes(x => x.speed(2))"
+            },
+            "Often": {
+              "type": "snippet",
+              "name": "Often",
+              "text": "s(\"bd*4\").often(x => x.gain(0.5))"
+            },
+            "Rarely": {
+              "type": "snippet",
+              "name": "Rarely",
+              "text": "s(\"hh*8\").rarely(x => x.speed(-1))"
+            },
+            "Random Probability": {
+              "type": "snippet",
+              "name": "Random Probability", 
+              "text": "s(\"bd? sd? hh?\")"
+            }
+          }
+        },
+        "Offset & Jux": {
+          "type": "folder",
+          "children": {
+            "Offset Pattern": {
+              "type": "snippet",
+              "name": "Offset Pattern",
+              "text": "s(\"hh*8\").off(0.125, p => p.gain(0.5))"
+            },
+            "Jux Stereo": {
+              "type": "snippet",
+              "name": "Jux Stereo", 
+              "text": "n(\"0 1 2 3 4 5 6 7\").scale(\"C:minor\").jux(rev)"
+            },
+            "Early/Late": {
+              "type": "snippet",
+              "name": "Early/Late",
+              "text": "s(\"bd sd\").early(0.1)"
+            }
+          }
+        }
+      }
+    },
+    "Samples & Sampling": {
+      "type": "folder",
+      "children": {
+        "Loading Samples": {
+          "type": "folder",
+          "children": {
+            "GitHub Samples": {
+              "type": "snippet",
+              "name": "GitHub Samples",
+              "text": "samples('github:tidalcycles/dirt-samples')\ns(\"bd sd bd sd,hh*16\")"
+            },
+            "Custom URL": {
+              "type": "snippet",
+              "name": "Custom URL",
+              "text": "samples({ rhodes: 'https://cdn.freesound.org/previews/132/132051_316502-lq.mp3' })\ns(\"rhodes\").loopAt(4)"
+            },
+            "Shabda Search": {
+              "type": "snippet",
+              "name": "Shabda Search", 
+              "text": "samples('shabda:bass:4,hihat:4,rimshot:2')\nstack(\n  n(\"0 1 2 3 0 1 2 3\").s('bass'),\n  n(\"0 1*2 2 3*2\").s('hihat').clip(1),\n  n(\"~ 0 ~ 1 ~ 0 0 1\").s('rimshot')\n)"
+            }
+          }
+        },
+        "Sample Manipulation": {
+          "type": "folder",
+          "children": {
+            "Begin/End": {
+              "type": "snippet",
+              "name": "Begin/End",
+              "text": "s(\"rave\").begin(\"<0 .125 .25 .375 .5 .625 .75 .875>\").fast(2)"
+            },
+            "Speed Control": {
+              "type": "snippet",
+              "name": "Speed Control", 
+              "text": "s(\"bd*4\").speed(\"<1 1.5 2 0.5>\")"
+            },
+            "Loop At": {
+              "type": "snippet",
+              "name": "Loop At",
+              "text": "samples({ rhodes: 'https://cdn.freesound.org/previews/132/132051_316502-lq.mp3' })\ns(\"rhodes\").loopAt(4)"
+            },
+            "Cut Groups": {
+              "type": "snippet",
+              "name": "Cut Groups", 
+              "text": "s(\"numbers:0 numbers:1 numbers:2 numbers:3\").cut(1)"
+            }
+          }
+        },
+        "Granular": {
+          "type": "folder",
+          "children": {
+            "Basic Chop": {
+              "type": "snippet",
+              "name": "Basic Chop",
+              "text": "s(\"amen\").chop(8).loopAt(4)"
+            },
+            "Chop with Effects": {
+              "type": "snippet",
+              "name": "Chop with Effects",
+              "text": "s(\"groove\").chop(32).loopAt(2)\n.velocity(sine.range(0.5, 1).fast(2))\n.mul(speed(\"0.75 1.5 0.9 1\"))"
+            },
+            "Striate": {
+              "type": "snippet",
+              "name": "Striate", 
+              "text": "s(\"numbers:0 numbers:1 numbers:2 numbers:3\").cut(1)\n.every(2, striate(4))"
+            }
+          }
+        }
+      }
+    },
+    "Advanced Techniques": {
+      "type": "folder",
+      "children": {
+        "Layering": {
+          "type": "folder",
+          "children": {
+            "Basic Layer": {
+              "type": "snippet",
+              "name": "Basic Layer",
+              "text": "note(\"<g1 bb1 d2 f1>\").layer(\n  x=>x.s(\"sawtooth\").vib(4),\n  x=>x.s(\"square\").add(note(12))\n)"
+            },
+            "Detuned Chorus": {
+              "type": "snippet",
+              "name": "Detuned Chorus", 
+              "text": "note(\"<g1 bb1 d2 f1>\")\n.add(note(\"0,.1\"))\n.s(\"sawtooth\")"
+            },
+            "Multi-Oscillator": {
+              "type": "snippet",
+              "name": "Multi-Oscillator",
+              "text": "note(\"d f a c\").s(\"sawtooth\")\n.layer(\n  x => x,\n  x => x.add(note(7)).s(\"square\").gain(0.5),\n  x => x.add(note(-12)).s(\"sine\").gain(0.3)\n)"
+            }
+          }
+        },
+        "Modulation": {
+          "type": "folder",
+          "children": {
+            "LFO Modulation": {
+              "type": "snippet",
+              "name": "LFO Modulation",
+              "text": "note(\"<c4 bb f eb>*8\")\n.add(note(perlin.range(0,.5)))\n.clip(2).s(\"gm_electric_guitar_clean\")"
+            },
+            "Sine Wave Mod": {
+              "type": "snippet",
+              "name": "Sine Wave Mod", 
+              "text": "note(\"c e g\").s(\"sawtooth\")\n.cutoff(sine.range(200, 2000).fast(4))"
+            },
+            "Perlin Noise": {
+              "type": "snippet",
+              "name": "Perlin Noise",
+              "text": "n(perlin.range(-7,24).segment(16))\n.scale(\"C:scriabin\").s(\"kawai\")"
+            },
+            "Random Modulation": {
+              "type": "snippet",
+              "name": "Random Modulation",
+              "text": "note(\"c e g b\").s(\"sine\")\n.gain(rand.range(0.5, 1))"
+            }
+          }
+        },
+        "Complex Patterns": {
+          "type": "folder",
+          "children": {
+            "Phasing": {
+              "type": "snippet",
+              "name": "Phasing",
+              "text": "stack(\n  s(\"bd sd\").fast(1),\n  s(\"bd sd\").fast(1.01)\n)"
+            },
+            "Breakbeat Slice": {
+              "type": "snippet",
+              "name": "Breakbeat Slice", 
+              "text": "samples('github:yaxu/clean-breaks')\ns(\"amen\")\n.splice(8, \"<0 1 2 3 4*2 5 6 [6 7]>*2\")\n.cut(1).rarely(ply(\"2\"))"
+            },
+            "Euclidean Melody": {
+              "type": "snippet",
+              "name": "Euclidean Melody",
+              "text": "n(tri.range(0,15).euclid(7,16))\n.scale(\"C:scriabin\").s(\"sine\")"
+            },
+            "Filter Envelope": {
+              "type": "snippet",
+              "name": "Filter Envelope", 
+              "text": "note(\"g1 bb1 <c2 eb2> d2\")\n.s(\"sawtooth\").lpq(8)\n.lpf(400).lpa(.1).lpd(.1).lpenv(4)"
+            }
+          }
+        },
+        "ADSR Envelopes": {
+          "type": "folder",
+          "children": {
+            "Basic ADSR": {
+              "type": "snippet",
+              "name": "Basic ADSR",
+              "text": "note(\"c3 e3 g3 b2\")\n.s(\"saw\")\n.attack(\"<0 .05 .1 .2>\")\n.decay(\"<.1 .2 .3 .4>\")\n.sustain(\"<0 .25 .5 .75 1>\")\n.release(\"<.2 .4 .6 1>\")\n.gain(0.9)"
+            },
+            "Pluck Envelope": {
+              "type": "snippet",
+              "name": "Pluck Envelope", 
+              "text": "note(\"c e g c4\").s(\"sawtooth\")\n.attack(0.01).decay(0.3).sustain(0).release(0.1)"
+            },
+            "Pad Envelope": {
+              "type": "snippet",
+              "name": "Pad Envelope",
+              "text": "note(\"<c3e3g3 a2c3e3 f2a2c3 g2b2d3>\").s(\"saw\")\n.attack(0.01).decay(0.3).sustain(0.5).release(0.6).slow(2)"
+            }
+          }
+        }
+      }
+    },
+    "Compositions": {
+      "type": "folder",
+      "children": {
+        "Full Tracks": {
+          "type": "folder",
+          "children": {
+            "Ambient Pad": {
+              "type": "snippet",
+              "name": "Ambient Pad",
+              "text": "stack(\n  note(\"<c3e3g3 a2c3e3 f2a2c3 g2b2d3>\").s(\"saw\")\n    .chorus(0.4).reverb(0.5)\n    .attack(0.01).decay(0.3).sustain(0.5).release(0.6).slow(2),\n  note(\"c1 a0 f1 g1\").s(\"sine\").slow(4).gain(0.6),\n  s(\"~ ~ ~ sd\").gain(0.3).room(0.8)\n)"
+            },
+            "House Track": {
+              "type": "snippet",
+              "name": "House Track", 
+              "text": "stack(\n  s(\"bd*4\"),\n  s(\"~ sd ~ sd\").gain(0.8),\n  s(\"[~ hh]*2\").gain(0.6),\n  note(\"c2(3,8) g1(3,8) c2(5,8)\").s(\"sine\").fm(2).fmh(1.5).gain(0.8)\n).cpm(125)"
+            },
+            "Breakbeat": {
+              "type": "snippet",
+              "name": "Breakbeat",
+              "text": "samples('github:yaxu/clean-breaks')\nstack(\n  s(\"amen/4\").fit().chop(16).cut(1)\n    .sometimesBy(.5, ply(\"2\"))\n    .sometimesBy(.25, mul(speed(\"-1\"))),\n  note(\"c1 ~ bb0 f1\").s(\"sawtooth\").lpf(400)\n).cpm(140)"
+            },
+            "Jazz Progression": {
+              "type": "snippet",
+              "name": "Jazz Progression", 
+              "text": "stack(\n  chord(\"<Dm7 G7 Cmaj7 A7>\").slow(2)\n    .s(\"piano\").gain(0.7).room(0.3),\n  note(\"d2 g2 c2 a1\").s(\"gm_acoustic_bass\")\n    .slow(2).gain(0.8),\n  s(\"~ [sd sd] ~ sd\").gain(0.6)\n).cpm(120)"
+            }
+          }
+        },
+        "Song Structures": {
+          "type": "folder",
+          "children": {
+            "Verse Pattern": {
+              "type": "snippet",
+              "name": "Verse Pattern",
+              "text": "stack(\n  s(\"bd ~ sd ~\"),\n  s(\"[~ hh]*2\").gain(0.5),\n  note(\"c3 ~ e3 g3\").s(\"piano\").gain(0.7)\n)"
+            },
+            "Chorus Build": {
+              "type": "snippet",
+              "name": "Chorus Build", 
+              "text": "stack(\n  s(\"bd*4\"),\n  s(\"hh*8\").gain(0.7),\n  s(\"~ sd\").gain(0.9),\n  note(\"<c3e3g3 a2c3e3>\").s(\"sawtooth\").cutoff(1200)\n)"
+            },
+            "Bridge Section": {
+              "type": "snippet",
+              "name": "Bridge Section",
+              "text": "stack(\n  s(\"bd ~ ~ ~\"),\n  note(\"<f3a3c4 g3b3d4>\").s(\"sine\").reverb(0.7).slow(2),\n  s(\"~ ~ ~ hh\").gain(0.4)\n)"
+            }
+          }
+        },
+        "Genre Templates": {
+          "type": "folder",
+          "children": {
+            "Techno Template": {
+              "type": "snippet",
+              "name": "Techno Template",
+              "text": "stack(\n  s(\"bd(3,8)\"),\n  s(\"[~ hh*2]!4\"),\n  s(\"~ sd\").crush(4).room(0.5),\n  note(\"c1*16\").s(\"sine\").fm(8).fmh(1.5).gain(0.3)\n).cpm(130)"
+            },
+            "Drum & Bass": {
+              "type": "snippet",
+              "name": "Drum & Bass", 
+              "text": "stack(\n  s(\"bd ~ [sd bd] ~\"),\n  s(\"hh*16\").gain(0.4),\n  note(\"c1 ~ eb1 bb0\").s(\"sawtooth\").lpf(200).fast(2)\n).cpm(175)"
+            },
+            "Dubstep Wobble": {
+              "type": "snippet",
+              "name": "Dubstep Wobble",
+              "text": "stack(\n  s(\"bd ~ ~ ~ bd ~ sd ~\"),\n  note(\"c1\").s(\"sawtooth\")\n    .lpf(sine.range(50, 1000).fast(8))\n    .lpq(10).gain(0.8)\n).cpm(140)"
+            }
+          }
+        }
+      }
+    }
+  }
+}
