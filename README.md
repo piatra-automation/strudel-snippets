@@ -1,4 +1,4 @@
-# 🎵 Strudel Snippet Library
+# Strudel Snippet Library
 
 A comprehensive collection of Strudel live coding patterns and examples, organized in a hierarchical structure for easy browsing and integration into web applications.
 
@@ -10,7 +10,7 @@ A comprehensive collection of Strudel live coding patterns and examples, organiz
 - **`strudel-snippet-library.js`** - JavaScript parser and utilities for working with the snippet library
 - **`strudel-snippet-demo.html`** - Interactive demo showing how to use the library in a web app
 
-### 🗂️ Snippet Categories
+### Snippet Categories
 
 The library is organized into 7 main categories:
 
@@ -64,7 +64,7 @@ The library is organized into 7 main categories:
    - Song Structures (verse, chorus, bridge)
    - Genre Templates (techno, drum & bass, dubstep)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Using the Demo
 
@@ -119,7 +119,7 @@ Folders are organized like this:
 }
 ```
 
-## 📚 API Reference
+## API Reference
 
 ### StrudelSnippetLibrary Class
 
@@ -144,7 +144,7 @@ Folders are organized like this:
 - `renderStrudelSnippetMenu(menuItems, parentElement, onSnippetClick)` - Render interactive menu
 - `insertStrudelSnippet(snippet, editor, options)` - Insert snippet into code editor
 
-## 🎯 Example Snippets
+## Example Snippets
 
 ### Beginner
 ```javascript
@@ -186,7 +186,7 @@ s("amen").splice(8, "<0 1 2 3 4*2 5 6 [6 7]>*2")
 .cut(1).rarely(ply("2"))
 ```
 
-## 🛠️ Customization
+## Customization
 
 ### Adding Your Own Snippets
 
@@ -234,7 +234,7 @@ Strudel is a web-based live coding environment that brings TidalCycles to the br
 - **Euclidean rhythms**: `"bd(3,8)"` - Algorithmic distribution
 - **Randomization**: `"bd?"` - Probabilistic events
 
-## 🤝 Contributing
+## Contributing
 
 Want to add more snippets? The library is designed to be easily extensible. Consider adding:
 
@@ -244,10 +244,10 @@ Want to add more snippets? The library is designed to be easily extensible. Cons
 - Complex polyrhythmic patterns
 - Sample manipulation recipes
 
-## 📄 License
+## License
 
 This snippet library is provided as a reference and educational resource. The Strudel patterns are based on examples from the Strudel documentation and community. Individual snippets may be used freely in your own Strudel compositions.
 
 ---
 
-Happy live coding! 🎶✨
+Happy live coding! 
